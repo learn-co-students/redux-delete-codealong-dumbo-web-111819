@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import uuid from 'uuid'
 class CreateTodo extends Component {
 
   constructor() {
@@ -12,7 +12,7 @@ class CreateTodo extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.addTodo(this.state)
+    this.props.addTodo({...this.state, id: uuid.v4()})
     this.setState({text: ''})
   }
 
